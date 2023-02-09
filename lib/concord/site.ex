@@ -11,6 +11,10 @@ defmodule Concord.Site do
     Repo.all(Photo)
   end
 
+  def count_photos do
+    Repo.aggregate(Photo, :count, :id)
+  end
+
   # expects reticulum_key and extension to be set
   def raw_create_photo(attrs \\ %{}) do
     %Photo{}

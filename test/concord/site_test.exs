@@ -31,5 +31,15 @@ defmodule Concord.SiteTest do
       assert Site.list_photos() == [photo]
     end
 
+    test "count_photos/0 returns 0 when no images" do
+      assert Site.count_photos() == 0
+    end
+
+    test "count_photos/0 returns accurate number" do
+      assert Site.count_photos() == 0
+      photo_fixture()
+      assert Site.count_photos() == 1
+    end
+
   end
 end
