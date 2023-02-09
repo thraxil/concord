@@ -15,13 +15,15 @@
   <%= if @has_next do %><button class="btn"><%= link "next >>", to: Routes.page_path(@conn, :index, page: @next_page) %></button><% else %><button class="btn btn-disabled">next &gt;&gt;</button><% end %>
 </div>
 
-<p class="text-center">other stuff here</p>
-
-<%= for photo <- @photos do %>
-    <div class="photo">
-      <%= photo.title %>
-    </div>
-<% end %>
+<main>
+  <div class="columns-3 gap-x-8 space-y-8">
+    <%= for photo <- @photos do %>
+        <div class="w-full">
+          <%= img_tag(thumb_url(photo), alt: photo.title) %>
+        </div>
+        <% end %>
+  </div>
+</main>
 
 <div class="btn-group flex justify-center">
   <%= if @has_prev do %>
