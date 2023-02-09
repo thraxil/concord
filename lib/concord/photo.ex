@@ -12,6 +12,9 @@ defmodule Concord.Photo do
     field :views, :integer
 
     timestamps()
+
+    many_to_many :tags, Concord.Tag, join_through: Concord.PhotoTag
+    many_to_many :albums, Concord.Album, join_through: Concord.AlbumPhoto
   end
 
   @doc false

@@ -8,6 +8,8 @@ defmodule Concord.Album do
     field :title, :string
 
     timestamps()
+
+    many_to_many :photos, Concord.Photo, join_through: Concord.AlbumPhoto
   end
 
   @doc false
