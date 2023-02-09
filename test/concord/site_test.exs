@@ -9,7 +9,7 @@ defmodule Concord.SiteTest do
       description_html: "<p>some description</p>",
       taken: DateTime.utc_now(),
       views: 0,
-      reticulum_key: "asdf",
+      reticulum_key: "e0965866227a5546cf9417fd25d5f9a278a95029",
       extension: ".jpg"
     }
 
@@ -41,5 +41,16 @@ defmodule Concord.SiteTest do
       assert Site.count_photos() == 1
     end
 
+    test "newest_images/2 empty list when no photos" do
+      assert Site.newest_photos(10, 1) == []
+    end
+
+    test "newest_images/2 returns photos" do
+      assert Site.newest_photos(10, 1) == []
+      photo1 = photo_fixture(%{title: "p1"})
+      assert Site.newest_photos(10, 1) == [photo1]
+      photo2 = photo_fixture(%{title: "p2"})
+      assert Site.newest_photos(10, 1) == [photo2, photo1]
+    end
   end
 end

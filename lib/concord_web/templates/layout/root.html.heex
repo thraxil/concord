@@ -13,7 +13,7 @@
 
     <div class="navbar bg-base-100">
       <div class="flex-1">
-        <a class="btn btn-ghost normal-case text-xl" href="/">Auratus</a>
+        <%= link "Auratus", to: Routes.page_path(@conn, :index, page: 1), class: "btn btn-ghost normal-case text-xl" %>
       </div>
       <div class="flex-none">
         <ul class="menu menu-horizontal px-1">

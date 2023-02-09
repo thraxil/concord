@@ -11,6 +11,14 @@ defmodule Concord.Site do
     Repo.all(Photo)
   end
 
+  def newest_photos(photos_per_page, page \\ 1) do
+    q = from p in Photo,
+      order_by: [desc: :inserted_at, desc: :id],
+      limit: ^photos_per_page,
+      offset: ^((page - 1) * photos_per_page)
+    Repo.all(q)
+  end
+  
   def count_photos do
     Repo.aggregate(Photo, :count, :id)
   end
