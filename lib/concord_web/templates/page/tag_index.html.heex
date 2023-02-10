@@ -6,9 +6,11 @@
 </div>
 
 <main>
+  <ul>
   <%= for tag <- @tags do %>
-      <div class="w-full">
+      <li class="badge">
         <%= tag.name %>
-      </div>
+      </li>
       <% end %>
+  </ul>
 </main>

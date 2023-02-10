@@ -1,10 +1,18 @@
 
 <div class="card max-h-fit">
   <div class="card-body">
-<figure><%= img_tag(large_url(@photo), alt: @photo.title, class: "max-h-fit") %></figure>
+    <figure><%= img_tag(large_url(@photo), alt: @photo.title, class: "max-h-fit") %></figure>
 
-<h2 class="card-title"><%= @photo.title %></h2>                         
+    <h2 class="card-title"><%= @photo.title %></h2>                         
 
-<%= raw @photo.description_html %>
-</div>
+    <%= raw @photo.description_html %>
+  </div>
+
+  <h3>Tags</h3>
+  <ul>
+  <%= for tag <- @photo.tags do %>
+      <li class="badge"><%= tag.name %></li>
+      <% end %>
+  </ul>
+  
 </div>
