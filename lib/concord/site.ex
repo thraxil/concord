@@ -40,4 +40,14 @@ defmodule Concord.Site do
     Repo.all(Album)
   end
 
+  def raw_create_tag(attrs \\ %{}) do
+    %Tag{}
+    |> Tag.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  def list_tags do
+    Repo.all(Tag)
+  end
+  
 end

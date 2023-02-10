@@ -11,5 +11,11 @@ defmodule ConcordWeb.PageControllerTest do
     assert html_response(conn, 200) =~ "Auratus"
     assert html_response(conn, 200) =~ "Albums"    
   end
+
+  test "GET /tag/", %{conn: conn} do
+    conn = get(conn, "/tag/")
+    assert html_response(conn, 200) =~ "Auratus"
+    assert html_response(conn, 200) =~ "Tags"    
+  end
   
 end

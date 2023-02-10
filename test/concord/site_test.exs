@@ -79,4 +79,28 @@ defmodule Concord.SiteTest do
       assert Site.list_albums() == [album]
     end
   end
+
+  describe "tags" do
+    @valid_attrs %{
+      name: "tag"
+    }
+
+    def tag_fixture(attrs \\ %{}) do
+      {:ok, tag} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> Site.raw_create_tag()
+      tag
+    end
+
+    test "list_tags/0 returns empty list when no tags" do
+      assert Site.list_tags() == []
+    end
+
+    test "list_tags/0 returns all tags" do
+      assert Site.list_tags() == []
+      tag = tag_fixture()
+      assert Site.list_tags() == [tag]
+    end
+  end
 end

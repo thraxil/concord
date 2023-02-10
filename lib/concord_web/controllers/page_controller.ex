@@ -29,4 +29,11 @@ defmodule ConcordWeb.PageController do
       albums: albums
     )
   end
+
+  def tag_index(conn, _params) do
+    tags = Site.list_tags()
+    render(conn, "tag_index.html",
+      tags: tags
+    )
+  end
 end

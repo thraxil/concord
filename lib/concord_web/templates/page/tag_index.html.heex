@@ -1,0 +1,14 @@
+<div class="text-sm breadcrumbs">
+  <ul>
+    <li><%= link "Auratus", to: Routes.page_path(@conn, :index, page: 1) %></li> 
+    <li>Tags</li>
+  </ul>
+</div>
+
+<main>
+  <%= for tag <- @tags do %>
+      <div class="w-full">
+        <%= tag.name %>
+      </div>
+      <% end %>
+</main>
