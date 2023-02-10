@@ -22,4 +22,11 @@ defmodule ConcordWeb.PageController do
       has_next: has_next
     )
   end
+
+  def album_index(conn, _params) do
+    albums = Site.list_albums()
+    render(conn, "album_index.html",
+      albums: albums
+    )
+  end
 end

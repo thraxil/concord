@@ -18,6 +18,7 @@ defmodule ConcordWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/album/", PageController, :album_index
   end
 
   # Other scopes may use custom stacks.

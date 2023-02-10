@@ -17,7 +17,7 @@
       </div>
       <div class="flex-none">
         <ul class="menu menu-horizontal px-1">
-          <li><a href="/album/">Albums</a></li>
+          <li><%= link "Albums", to: Routes.page_path(@conn, :album_index)%></li>
           <li><a href="/tag/">Tags</a></li>          
           <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
           <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %></li>

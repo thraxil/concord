@@ -29,4 +29,15 @@ defmodule Concord.Site do
     |> Photo.changeset(attrs)
     |> Repo.insert()
   end
+
+  def raw_create_album(attrs \\ %{}) do
+    %Album{}
+    |> Album.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  def list_albums do
+    Repo.all(Album)
+  end
+
 end

@@ -53,4 +53,30 @@ defmodule Concord.SiteTest do
       assert Site.newest_photos(10, 1) == [photo2, photo1]
     end
   end
+
+  describe "albums" do
+    @valid_attrs %{
+      title: "some title",
+      description: "some description",
+      description_html: "<p>some description</p>"
+    }
+
+    def album_fixture(attrs \\ %{}) do
+      {:ok, album} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> Site.raw_create_album()
+      album
+    end
+
+    test "list_albums/0 returns empty list when no albums" do
+      assert Site.list_albums() == []
+    end
+
+    test "list_albums/0 returns all albums" do
+      assert Site.list_albums() == []
+      album = album_fixture()
+      assert Site.list_albums() == [album]
+    end
+  end
 end

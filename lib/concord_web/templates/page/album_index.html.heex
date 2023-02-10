@@ -1,0 +1,15 @@
+<div class="text-sm breadcrumbs">
+  <ul>
+    <li><%= link "Auratus", to: Routes.page_path(@conn, :index, page: 1) %></li> 
+    <li>Albums</li>
+  </ul>
+</div>
+
+<main>
+  <%= for album <- @albums do %>
+      <div class="w-full">
+        <%= album.title %>
+      </div>
+      <% end %>
+</main>
+
