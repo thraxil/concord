@@ -6,6 +6,7 @@ defmodule Concord.AlbumPhoto do
 
     field :photo_id, :id
     field :album_id, :id
+    field :_order, :integer
   end
 
   @doc false
