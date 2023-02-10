@@ -36,4 +36,10 @@ defmodule ConcordWeb.PageController do
       tags: tags
     )
   end
+
+  def show_photo(conn, %{"id" => id}) do
+    photo = Site.get_photo_by_id!(id)
+    render conn, "photo.html",
+      photo: photo
+  end
 end

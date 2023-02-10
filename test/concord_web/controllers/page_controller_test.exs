@@ -17,5 +17,11 @@ defmodule ConcordWeb.PageControllerTest do
     assert html_response(conn, 200) =~ "Auratus"
     assert html_response(conn, 200) =~ "Tags"    
   end
+
+  test "GET /photo/", %{conn: conn} do
+    photo = Concord.MainFixtures.insert_photo()
+    conn = get(conn, "/photo/" <> to_string(photo.id))
+    assert html_response(conn, 200) =~ photo.title
+  end
   
 end

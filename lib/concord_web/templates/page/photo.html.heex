@@ -1,0 +1,10 @@
+
+<div class="card max-h-fit">
+  <div class="card-body">
+<figure><%= img_tag(large_url(@photo), alt: @photo.title, class: "max-h-fit") %></figure>
+
+<h2 class="card-title"><%= @photo.title %></h2>                         
+
+<%= raw @photo.description_html %>
+</div>
+</div>

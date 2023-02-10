@@ -20,6 +20,8 @@ defmodule ConcordWeb.Router do
     get "/", PageController, :index
     get "/album/", PageController, :album_index
     get "/tag/", PageController, :tag_index
+
+    get "/photo/:id", PageController, :show_photo
   end
 
   # Other scopes may use custom stacks.

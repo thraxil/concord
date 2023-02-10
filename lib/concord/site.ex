@@ -49,5 +49,9 @@ defmodule Concord.Site do
   def list_tags do
     Repo.all(Tag)
   end
+
+  def get_photo_by_id!(id) do
+    Repo.get!(Photo, id)
+  end
   
 end

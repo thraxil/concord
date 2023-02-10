@@ -52,6 +52,14 @@ defmodule Concord.SiteTest do
       photo2 = photo_fixture(%{title: "p2"})
       assert Site.newest_photos(10, 1) == [photo2, photo1]
     end
+
+    test "get_photo_by_id!/1 returns photo" do
+      photo = photo_fixture()
+      r = Site.get_photo_by_id!(photo.id)
+      assert photo.title == r.title
+      assert photo.description == r.description
+      assert photo.id == r.id
+    end
   end
 
   describe "albums" do
