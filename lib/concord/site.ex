@@ -49,7 +49,11 @@ defmodule Concord.Site do
   end
 
   def list_tags do
-    Repo.all(Tag)
+    q =
+      from t in Tag,
+        order_by: [asc: :name]
+
+    Repo.all(q)
   end
 
   def get_photo_by_id!(id) do
