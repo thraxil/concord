@@ -3,7 +3,9 @@
   <div class="card-body">
     <figure><%= img_tag(large_url(@photo), alt: @photo.title, class: "max-h-fit") %></figure>
 
-    <h2 class="card-title"><%= @photo.title %></h2>                         
+    <h2 class="card-title"><%= @photo.title %></h2>
+    <%= if @photo.taken do %><p>Taken: <%= @photo.taken %></p><% end %>
+    <p>Uploaded: <%= @photo.inserted_at %></p>
 
     <%= raw @photo.description_html %>
   </div>

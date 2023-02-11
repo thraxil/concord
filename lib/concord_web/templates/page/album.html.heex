@@ -8,6 +8,8 @@
 </div>
 
 <main>
+  <%= raw @album.description_html %>
+
   <div class="columns-3 gap-x-8 space-y-8">
     <%= for photo <- @album.photos do %>
         <div class="w-full">
