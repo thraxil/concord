@@ -61,7 +61,13 @@ defmodule Concord.Site do
   end
 
   def get_album!(id) do
-    Repo.get!(Album, id) |> Repo.preload(:photos)
+    Repo.get!(Album, id)
+    |> Repo.preload(
+      photos:
+        from(p in Photo,
+          order_by: [asc: p.taken, asc: p.inserted_at]
+        )
+    )
   end
 
   def get_tag!(name) do
