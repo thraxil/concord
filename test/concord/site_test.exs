@@ -18,6 +18,7 @@ defmodule Concord.SiteTest do
         attrs
         |> Enum.into(@valid_attrs)
         |> Site.raw_create_photo()
+
       photo
     end
 
@@ -74,6 +75,7 @@ defmodule Concord.SiteTest do
         attrs
         |> Enum.into(@valid_attrs)
         |> Site.raw_create_album()
+
       album
     end
 
@@ -107,6 +109,7 @@ defmodule Concord.SiteTest do
         attrs
         |> Enum.into(@valid_attrs)
         |> Site.raw_create_tag()
+
       tag
     end
 
@@ -126,6 +129,5 @@ defmodule Concord.SiteTest do
       assert t.id == tag.id
       assert t.name == tag.name
     end
-
   end
 end

@@ -20,7 +20,23 @@ defmodule Concord.Photo do
   @doc false
   def changeset(photo, attrs) do
     photo
-    |> cast(attrs, [:title, :description, :description_html, :views, :reticulum_key, :extension, :taken])
-    |> validate_required([:title, :description, :description_html, :views, :reticulum_key, :extension, :taken])
+    |> cast(attrs, [
+      :title,
+      :description,
+      :description_html,
+      :views,
+      :reticulum_key,
+      :extension,
+      :taken
+    ])
+    |> validate_required([
+      :title,
+      :description,
+      :description_html,
+      :views,
+      :reticulum_key,
+      :extension,
+      :taken
+    ])
   end
 end

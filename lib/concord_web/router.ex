@@ -22,7 +22,7 @@ defmodule ConcordWeb.Router do
     get "/album/:id", PageController, :show_album
     get "/tag/", PageController, :tag_index
     get "/tag/:name", PageController, :show_tag
-    
+
     get "/photo/:id", PageController, :show_photo
   end
 

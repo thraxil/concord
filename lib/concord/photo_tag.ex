@@ -3,7 +3,6 @@ defmodule Concord.PhotoTag do
   import Ecto.Changeset
 
   schema "photo_tags" do
-
     field :photo_id, :id
     field :tag_id, :id
   end
