@@ -9,9 +9,9 @@
     <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>
     <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
   </head>
-  <body>
+  <body class="bg-base-100">
 
-    <div class="navbar bg-base-100">
+    <div class="navbar bg-base-300">
       <div class="flex-1">
         <%= link "Auratus", to: Routes.page_path(@conn, :index, page: 1), class: "btn btn-ghost normal-case text-xl" %>
       </div>
