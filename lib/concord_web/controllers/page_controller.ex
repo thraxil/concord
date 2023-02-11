@@ -37,9 +37,16 @@ defmodule ConcordWeb.PageController do
     )
   end
 
+  def show_tag(conn, %{"name" => name}) do
+    tag = Site.get_tag!(name)
+    render conn, "tag.html",
+      tag: tag
+  end
+
   def show_photo(conn, %{"id" => id}) do
     photo = Site.get_photo_by_id!(id)
     render conn, "photo.html",
       photo: photo
   end
+
 end

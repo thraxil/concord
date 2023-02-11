@@ -4,6 +4,8 @@ defmodule Concord.Tag do
 
   schema "tags" do
     field :name, :string
+
+    many_to_many :photos, Concord.Photo, join_through: Concord.PhotoTag
   end
 
   @doc false

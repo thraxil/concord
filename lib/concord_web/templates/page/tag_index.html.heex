@@ -9,7 +9,7 @@
   <ul>
   <%= for tag <- @tags do %>
       <li class="badge">
-        <%= tag.name %>
+        <%= link tag.name, to: Routes.page_path(@conn, :show_tag, tag.name) %>
       </li>
       <% end %>
   </ul>

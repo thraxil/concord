@@ -53,5 +53,9 @@ defmodule Concord.Site do
   def get_photo_by_id!(id) do
     Repo.get!(Photo, id) |> Repo.preload(:tags)
   end
+
+  def get_tag!(name) do
+    Repo.get_by!(Tag, name: name) |> Repo.preload(:photos)
+  end
   
 end

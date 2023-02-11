@@ -1,6 +1,15 @@
 defmodule Concord.MainFixtures do
   alias Concord.Repo
 
+  def insert_tag(attrs \\ %{}) do
+    changes = Map.merge(%{
+          name: "test"
+                        }, attrs)
+    %Concord.Tag{}
+    |> Concord.Tag.changeset(changes)
+    |> Repo.insert!()
+  end
+
   def insert_photo(attrs \\ %{}) do
     changes = Map.merge(%{
           reticulum_key: "asdfasdfasd",
@@ -15,4 +24,5 @@ defmodule Concord.MainFixtures do
     |> Concord.Photo.changeset(changes)
     |> Repo.insert!()
   end
+
 end

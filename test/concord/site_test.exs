@@ -110,5 +110,12 @@ defmodule Concord.SiteTest do
       tag = tag_fixture()
       assert Site.list_tags() == [tag]
     end
+
+    test "get_tag!/1 returns tag" do
+      tag = tag_fixture()
+      t = Site.get_tag!(tag.name)
+      assert t.id == tag.id
+      assert t.name == tag.name
+    end
   end
 end

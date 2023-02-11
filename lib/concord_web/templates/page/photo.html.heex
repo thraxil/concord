@@ -11,8 +11,8 @@
   <h3>Tags</h3>
   <ul>
   <%= for tag <- @photo.tags do %>
-      <li class="badge"><%= tag.name %></li>
+      <li class="badge"><%= link tag.name, to: Routes.page_path(@conn, :show_tag, tag.name) %></li>
       <% end %>
   </ul>
-  
+
 </div>
