@@ -2,7 +2,7 @@
   <div class="hero-content text-center">
     <div class="max-w-md">
       <h1 class="text-5xl font-bold">Auratus</h1>
-      <p class="py-6">Welcome to my image gallery. Browse by Album, by Tag, or just scroll down and page through.</p>
+      <p class="py-6">Welcome to my image gallery. Browse by <%= link "Albums", to: Routes.page_path(@conn, :album_index)%>, by <%= link "Tags", to: Routes.page_path(@conn, :tag_index)%>, or just scroll down and page through.</p>
     </div>
   </div>
 </div>
