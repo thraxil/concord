@@ -8,7 +8,7 @@
 <main>
   <%= for album <- @albums do %>
       <div class="w-full">
-        <%= album.title %>
+        <%= link album.title, to: Routes.page_path(@conn, :show_album, album.id) %>
       </div>
       <% end %>
 </main>

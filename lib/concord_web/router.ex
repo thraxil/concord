@@ -19,6 +19,7 @@ defmodule ConcordWeb.Router do
 
     get "/", PageController, :index
     get "/album/", PageController, :album_index
+    get "/album/:id", PageController, :show_album
     get "/tag/", PageController, :tag_index
     get "/tag/:name", PageController, :show_tag
     

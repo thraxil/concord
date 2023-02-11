@@ -25,4 +25,15 @@ defmodule Concord.MainFixtures do
     |> Repo.insert!()
   end
 
+  def insert_album(attrs \\ %{}) do
+    changes = Map.merge(%{
+          title: "an album",
+          description: "a description",
+          description_html: "<p>a description</p>",
+                        }, attrs)
+    %Concord.Album{}
+    |> Concord.Album.changeset(changes)
+    |> Repo.insert!()
+  end
+
 end

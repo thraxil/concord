@@ -12,6 +12,14 @@ defmodule ConcordWeb.PageControllerTest do
     assert html_response(conn, 200) =~ "Albums"    
   end
 
+  test "GET /album/:id", %{conn: conn} do
+    a = Concord.MainFixtures.insert_album()
+    conn = get(conn, "/album/" <> to_string(a.id))
+    assert html_response(conn, 200) =~ "Auratus"
+    assert html_response(conn, 200) =~ "Albums"
+    assert html_response(conn, 200) =~ a.title
+  end
+
   test "GET /tag/", %{conn: conn} do
     conn = get(conn, "/tag/")
     assert html_response(conn, 200) =~ "Auratus"

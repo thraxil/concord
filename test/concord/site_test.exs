@@ -86,6 +86,15 @@ defmodule Concord.SiteTest do
       album = album_fixture()
       assert Site.list_albums() == [album]
     end
+
+    test "get_album!/1 returns album" do
+      album = album_fixture()
+      a = Site.get_album!(album.id)
+      assert a.id == album.id
+      assert a.title == album.title
+      assert a.description == album.description
+      assert a.description_html == album.description_html
+    end
   end
 
   describe "tags" do
@@ -117,5 +126,6 @@ defmodule Concord.SiteTest do
       assert t.id == tag.id
       assert t.name == tag.name
     end
+
   end
 end

@@ -49,4 +49,10 @@ defmodule ConcordWeb.PageController do
       photo: photo
   end
 
+  def show_album(conn, %{"id" => id}) do
+    album = Site.get_album!(id)
+    render conn, "album.html",
+      album: album
+  end
+
 end
