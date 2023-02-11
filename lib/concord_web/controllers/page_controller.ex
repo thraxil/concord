@@ -3,7 +3,7 @@ defmodule ConcordWeb.PageController do
   alias Concord.Site
 
   def index(conn, _params) do
-    photos_per_page = 10
+    photos_per_page = 20
     defaults = %{"page" => "1"}
     params = Map.merge(defaults, conn.query_params)
     {page, _} = Integer.parse(params["page"])
