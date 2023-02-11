@@ -39,7 +39,11 @@ defmodule Concord.Site do
   end
 
   def list_albums do
-    Repo.all(Album)
+    q =
+      from a in Album,
+        order_by: [desc: :inserted_at]
+
+    Repo.all(q)
   end
 
   def raw_create_tag(attrs \\ %{}) do
