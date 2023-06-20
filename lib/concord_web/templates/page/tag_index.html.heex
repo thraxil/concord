@@ -1,16 +1,16 @@
 <div class="text-sm breadcrumbs">
   <ul>
-    <li><%= link "Auratus", to: Routes.page_path(@conn, :index, page: 1) %></li> 
+    <li><%= link("Auratus", to: Routes.page_path(@conn, :index, page: 1)) %></li>
     <li>Tags</li>
   </ul>
 </div>
 
 <main>
   <ul>
-  <%= for tag <- @tags do %>
+    <%= for tag <- @tags do %>
       <li class="badge">
-        <%= link tag.name, to: Routes.page_path(@conn, :show_tag, tag.name) %>
+        <%= link(tag.name, to: Routes.page_path(@conn, :show_tag, tag.name)) %>
       </li>
-      <% end %>
+    <% end %>
   </ul>
 </main>

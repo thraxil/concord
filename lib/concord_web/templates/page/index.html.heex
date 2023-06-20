@@ -2,36 +2,59 @@
   <div class="hero-content text-center">
     <div class="max-w-md">
       <h1 class="text-5xl font-bold">Auratus</h1>
-      <p class="py-6">Welcome to my image gallery. Browse by <%= link "Albums", to: Routes.page_path(@conn, :album_index)%>, by <%= link "Tags", to: Routes.page_path(@conn, :tag_index)%>, or just scroll down and page through.</p>
+      <p class="py-6">
+        Welcome to my image gallery. Browse by <%= link("Albums",
+          to: Routes.page_path(@conn, :album_index)
+        ) %>, by <%= link("Tags", to: Routes.page_path(@conn, :tag_index)) %>, or just scroll down and page through.
+      </p>
     </div>
   </div>
 </div>
 
 <div class="btn-group flex justify-center">
   <%= if @has_prev do %>
-  <button class="btn"><%= link "<< prev", to: Routes.page_path(@conn, :index, page: @prev_page) %></button>
-  <% else %><button class="btn btn-disabled">&lt;&lt; prev</button><% end %>
+    <button class="btn">
+      <%= link("<< prev", to: Routes.page_path(@conn, :index, page: @prev_page)) %>
+    </button>
+  <% else %>
+    <button class="btn btn-disabled">&lt;&lt; prev</button>
+  <% end %>
   <button class="btn btn-disabled">page <%= @page %></button>
-  <%= if @has_next do %><button class="btn"><%= link "next >>", to: Routes.page_path(@conn, :index, page: @next_page) %></button><% else %><button class="btn btn-disabled">next &gt;&gt;</button><% end %>
+  <%= if @has_next do %>
+    <button class="btn">
+      <%= link("next >>", to: Routes.page_path(@conn, :index, page: @next_page)) %>
+    </button>
+  <% else %>
+    <button class="btn btn-disabled">next &gt;&gt;</button>
+  <% end %>
 </div>
 
 <main>
   <div class="columns-3 gap-x-8 space-y-8">
     <%= for photo <- @photos do %>
-        <div class="w-full">
-          <%= link to: Routes.page_path(@conn, :show_photo, photo.id) do %>
+      <div class="w-full">
+        <%= link to: Routes.page_path(@conn, :show_photo, photo.id) do %>
           <%= img_tag(thumb_url(photo), alt: photo.title, class: "shadow-md hover:shadow-2xl") %>
-          <% end %>
-        </div>
         <% end %>
+      </div>
+    <% end %>
   </div>
 </main>
 
 <div class="btn-group flex justify-center">
   <%= if @has_prev do %>
-  <button class="btn"><%= link "<< prev", to: Routes.page_path(@conn, :index, page: @prev_page) %></button>
-  <% else %><button class="btn btn-disabled">&lt;&lt; prev</button><% end %>
+    <button class="btn">
+      <%= link("<< prev", to: Routes.page_path(@conn, :index, page: @prev_page)) %>
+    </button>
+  <% else %>
+    <button class="btn btn-disabled">&lt;&lt; prev</button>
+  <% end %>
   <button class="btn btn-disabled">page <%= @page %></button>
-  <%= if @has_next do %><button class="btn"><%= link "next >>", to: Routes.page_path(@conn, :index, page: @next_page) %></button><% else %><button class="btn btn-disabled">next &gt;&gt;</button><% end %>
+  <%= if @has_next do %>
+    <button class="btn">
+      <%= link("next >>", to: Routes.page_path(@conn, :index, page: @next_page)) %>
+    </button>
+  <% else %>
+    <button class="btn btn-disabled">next &gt;&gt;</button>
+  <% end %>
 </div>
-

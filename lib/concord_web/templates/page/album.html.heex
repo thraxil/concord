@@ -1,22 +1,21 @@
-
 <div class="text-sm breadcrumbs">
   <ul>
-    <li><%= link "Auratus", to: Routes.page_path(@conn, :index, page: 1) %></li> 
-    <li><%= link "Albums", to: Routes.page_path(@conn, :album_index) %></li>
+    <li><%= link("Auratus", to: Routes.page_path(@conn, :index, page: 1)) %></li>
+    <li><%= link("Albums", to: Routes.page_path(@conn, :album_index)) %></li>
     <li><%= @album.title %></li>
   </ul>
 </div>
 
 <main>
-  <%= raw @album.description_html %>
+  <%= raw(@album.description_html) %>
 
   <div class="columns-3 gap-x-8 space-y-8">
     <%= for photo <- @album.photos do %>
-        <div class="w-full">
-          <%= link to: Routes.page_path(@conn, :show_photo, photo.id) do %>
+      <div class="w-full">
+        <%= link to: Routes.page_path(@conn, :show_photo, photo.id) do %>
           <%= img_tag(thumb_url(photo), alt: photo.title, class: "shadow-md hover:shadow-2xl") %>
-          <% end %>
-        </div>
         <% end %>
+      </div>
+    <% end %>
   </div>
 </main>
