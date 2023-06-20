@@ -25,6 +25,7 @@ defmodule ConcordWeb.ConnCase do
       import ConcordWeb.ConnCase
 
       alias ConcordWeb.Router.Helpers, as: Routes
+      use ConcordWeb, :verified_routes
 
       # The default endpoint for testing
       @endpoint ConcordWeb.Endpoint

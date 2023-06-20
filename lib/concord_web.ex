@@ -17,6 +17,8 @@ defmodule ConcordWeb do
   and import those modules here.
   """
 
+  def static_paths, do: ~w(assets fonts images favicon.ico robots.txt)
+  
   def controller do
     quote do
       use Phoenix.Controller, namespace: ConcordWeb
@@ -24,6 +26,8 @@ defmodule ConcordWeb do
       import Plug.Conn
       import ConcordWeb.Gettext
       alias ConcordWeb.Router.Helpers, as: Routes
+
+      unquote(verified_routes())
     end
   end
 
@@ -35,7 +39,7 @@ defmodule ConcordWeb do
 
       # Import convenience functions from controllers
       import Phoenix.Controller,
-        only: [get_flash: 1, get_flash: 2, view_module: 1, view_template: 1]
+        only: [get_flash: 1, view_module: 1, view_template: 1]
 
       # Include shared imports and aliases for views
       unquote(view_helpers())
@@ -99,6 +103,17 @@ defmodule ConcordWeb do
       import ConcordWeb.ErrorHelpers
       import ConcordWeb.Gettext
       alias ConcordWeb.Router.Helpers, as: Routes
+
+      unquote(verified_routes())
+    end
+  end
+
+  def verified_routes do
+    quote do
+      use Phoenix.VerifiedRoutes,
+        endpoint: ConcordWeb.Endpoint,
+        router: ConcordWeb.Router,
+        statics: ConcordWeb.static_paths()
     end
   end
 
