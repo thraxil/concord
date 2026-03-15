@@ -1,3 +1,8 @@
 #!/bin/sh
 cd -P -- "$(dirname -- "$0")"
+
+if [ -n "$DATABASE_URL_MIGRATION" ]; then
+  export DATABASE_URL="$DATABASE_URL_MIGRATION"
+fi
+
 exec ./concord eval Concord.Release.migrate
