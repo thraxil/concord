@@ -21,10 +21,12 @@ defmodule ConcordWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: ConcordWeb
+      use Phoenix.Controller,
+        formats: [html: "View", json: "View"],
+        layouts: [html: ConcordWeb.LayoutView]
 
       import Plug.Conn
-      import ConcordWeb.Gettext
+      use Gettext, backend: ConcordWeb.Gettext
       alias ConcordWeb.Router.Helpers, as: Routes
 
       unquote(verified_routes())
@@ -34,8 +36,7 @@ defmodule ConcordWeb do
   def view do
     quote do
       use Phoenix.View,
-        root: "lib/concord_web/templates",
-        namespace: ConcordWeb
+        root: "lib/concord_web/templates"
 
       # Import convenience functions from controllers
       import Phoenix.Controller,
@@ -84,7 +85,7 @@ defmodule ConcordWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import ConcordWeb.Gettext
+      use Gettext, backend: ConcordWeb.Gettext
     end
   end
 
@@ -102,7 +103,7 @@ defmodule ConcordWeb do
       import Phoenix.View
 
       import ConcordWeb.ErrorHelpers
-      import ConcordWeb.Gettext
+      use Gettext, backend: ConcordWeb.Gettext
       alias ConcordWeb.Router.Helpers, as: Routes
 
       unquote(verified_routes())

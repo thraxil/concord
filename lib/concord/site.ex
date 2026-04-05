@@ -1,5 +1,4 @@
 defmodule Concord.Site do
-  import Ecto.Changeset, only: [change: 2]
   import Ecto.Query, warn: false
   alias Concord.Repo
 
